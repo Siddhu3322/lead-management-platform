@@ -32,7 +32,19 @@ function Login() {
     try {
       const response = await api.post("/auth/login", formData);
 
-      localStorage.setItem("token", response.data.token);
+      console.log("Login Response:", response.data);
+
+      const token =
+        response.data.token ||
+        response.data.accessToken ||
+        response.data.jwt ||
+        response.data.jwtToken;
+
+      if (!token) {
+        throw new Error("JWT token was not returned by the backend.");
+      }
+
+      localStorage.setItem("token", token);
 
       localStorage.setItem(
         "user",
@@ -46,8 +58,11 @@ function Login() {
 
       navigate("/dashboard");
     } catch (err) {
+      console.error("Login Error:", err);
+
       setError(
         err.response?.data?.message ||
+          err.message ||
           "Login failed. Check your email and password."
       );
     } finally {

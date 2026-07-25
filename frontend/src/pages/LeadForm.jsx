@@ -208,7 +208,7 @@ function LeadForm() {
 
         <button
           type="button"
-          className="secondary-button"
+          className="back-link"
           onClick={() => navigate("/leads")}
         >
           <ArrowLeft size={18} />
@@ -318,7 +318,7 @@ function LeadForm() {
         <div className="form-actions">
           <button
             type="button"
-            className="secondary-button"
+            className="cancel-button"
             onClick={() => navigate("/leads")}
             disabled={loading}
           >
@@ -327,7 +327,7 @@ function LeadForm() {
 
           <button
             type="submit"
-            className="primary-button"
+            className="save-button"
             disabled={loading}
           >
             <Save size={18} />
