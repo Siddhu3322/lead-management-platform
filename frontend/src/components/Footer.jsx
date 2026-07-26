@@ -11,8 +11,6 @@ const Footer = () => {
         fontSize: "14px",
       }}
     >
-      <span>Built for </span>
-
       <a
         href="https://digitalheroesco.com"
         target="_blank"
@@ -23,7 +21,7 @@ const Footer = () => {
           fontWeight: "600",
         }}
       >
-        Digital Heroes Training Task
+        Built for Digital Heroes Training Task
       </a>
     </footer>
   );
